@@ -1,5 +1,9 @@
 require_relative "pieces_unicode"
+
 include PiecesConstant
+
+<D-[>#These pieces should have specific ways that they move....
+#These pieces have color
 class Rook 
    attr_accessor :unicode, :color
     def initialize(args = {})
