@@ -5,26 +5,50 @@
 require_relative 'Cell.rb'
 class Board
     attr_accessor :grid
-    def intialize(saved_board = false) #in case there is a saved game
-        @grid = saved_board || default_board
+    def initialize(saved_board = false) #in case there is a saved game
+        @grid = saved_board == true ? saved_board : default_board
             
-            
-
     end
 
-
-    def display_board
-
+    #this method prints the board
+    #For each row of the board, it'll print a new line
+    def display_board()
+        @grid.each do |row|
+                row.each do |element|
+                        print element
+                end
+            puts ""
+        end
 
     end
     
     #this accesses the grid
-    def access_cell(letter, number)
+    def replace_cell(letter, number)
+
         
     end
 
     def get_cell(letter, number)
-
+            case letter
+            when "A"
+               @grid[1][number]     
+            when "B"
+                @grid[2][number]
+            when "C"
+                @grid[3][number]
+            when "D"
+                @grid[4][number]
+            when "E"
+                @grid[5][number]
+            when "F"
+                @grid[6][number]
+            when "G"
+                @grid[7][number]
+            when "H"
+                @grid[8][number]
+            else
+                raise ArgumentError.new("Only A- H are allowed")
+            end
 
     end
 
@@ -34,6 +58,7 @@ class Board
          x = Array.new(9) {Array.new(9)}
             
          #populate the black and white squares
+         x[0][0] = " "
          x[0][1] = "1"
          x[0][2] = "2"
          x[0][3] = "3"
@@ -57,9 +82,9 @@ class Board
          for i in 1..8
                  for j in 1..8 
                     if(j % 2 == 0)
-                            x[i][j] = Cell.new(:white)
+                            x[i][j] = Cell.new(:white).value
                     else
-                            x[i][j] = Cell.new(:black)
+                            x[i][j] = Cell.new(:black).value
 
                     end
                  end
@@ -74,7 +99,9 @@ class Board
         return x
     end
 
+
 end
+
 
 
 
