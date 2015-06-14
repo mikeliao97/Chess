@@ -2,7 +2,10 @@ require 'spec_helper'
 describe Board do
     context "initialize with no parameters" do
          before :each do
-            @board = Board.new
+             @player1 = Player.new(name: "Johnny", color: :white)
+              @player2 = Player.new(name: "Patrick", color: :black)
+              @board = Board.new(@player1, @player2)
+
          end 
          
          describe "#new" do
@@ -15,11 +18,13 @@ describe Board do
 
     context "Board has a grid" do
         before :each do 
-            @board = Board.new
+            @player1 = Player.new(name: "Johnny", color: :white)
+              @player2 = Player.new(name: "Patrick", color: :black)
+              @board = Board.new(@player1, @player2)
         end
 
         describe "grid" do
-            it "grid has 8 elements" do
+            it "grid has 9 elements" do
                     expect(@board.grid.length).to eql 9
             end
 
@@ -31,7 +36,9 @@ describe Board do
 
      context "testing methods" do
          before :all do
-              @board = Board.new
+              @player1 = Player.new(name: "Johnny", color: :white)
+              @player2 = Player.new(name: "Patrick", color: :black)
+              @board = Board.new(@player1, @player2)
          end 
 
     
@@ -54,6 +61,30 @@ describe Board do
             end
         end
         
+    end
+
+    context "#new" do
+        before :all do 
+            @player1 = Player.new(name: "Johnny", color: :white)
+            @player2 = Player.new(name: "Patrick", color: :black)
+        end
+        it "valid when passed with two player" do
+                expect {Board.new(@player1, @player2)}.to_not raise_exception()
+            end
+    
+    end
+
+    context "#display_board" do
+            before :all do
+                 @player1 = Player.new(name: "Johnny", color: :white)
+                 @player2 = Player.new(name: "Patrick", color: :black)
+                 @board = Board.new(@player1, @player2)
+            end
+            
+            it "raises no errors" do
+                expect {@board.display_board}.to_not raise_exception()
+            
+            end
     end
 
 end

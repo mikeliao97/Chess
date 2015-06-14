@@ -37,7 +37,7 @@ class InCompleteCell
         return temp 
     end
 
-
+	
 
 end
 

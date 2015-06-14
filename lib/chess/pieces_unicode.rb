@@ -4,6 +4,7 @@ module PiecesConstant
     WHITE_ROOK = "\u2656"
     WHITE_BISHOP = "\u2657"
     WHITE_PAWN = "\u2659"
+    WHITE_KNIGHT = "\u2658"
 
     BLACK_KING = "\u265A"
     BLACK_QUEEN = "\u265B"
@@ -14,9 +15,7 @@ module PiecesConstant
     
     #to string
     def to_s
-             "Piece: #{self.class.name}\n" +
-             "Color: #{@color}\n" +
-             "Unicode: #{@unicode}" 
+            @unicode
     end
 
 end
