@@ -68,3 +68,34 @@ describe Bishop do
 
     end
 end
+
+
+describe Queen do
+    describe "#valid_move?" do
+        before :each do 
+              @player1 = Player.new(name: "Johnny", color: :white)
+              @player2 = Player.new(name: "Patrick", color: :black)
+              @board = Board.new(@player1, @player2)
+
+        end
+
+        it "H3-F5 fails due to pawn in front" do
+            expect Queen.valid_move?('H3F5', @board) == false
+        end
+        
+        it 'A6 - C4 fails due to a pawn in front' do
+            expect Queen.valid_move?('A6C4', @board) == false
+        end
+
+        it "is not a valid move because a pawn blocks the move A1 - C1" do
+            expect Queen.valid_move?('A1C1', @board) == false
+        end
+
+        it "is not a valid move because a pawn blocks the move A1 - C3" do
+            expect Queen.valid_move?('A1C3', @board) == false
+        end
+    end
+
+    
+end
+
