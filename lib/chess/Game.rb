@@ -29,8 +29,31 @@ class Game
 		#if it is empty return false because it does not contain a movable piece
 		#If you get a piece, use the class method to check wether the piece can move there
 		
+		#if any of the moves are bigger than the board piece return false
+		if(move[0] > 'H' || move[2] > 'H')
+				return false
+		end
+		
+		if(move[0] < 'A' || move [2] < 'A')
+				return false
+		end
 
+		if(move[1] > 8 || move[3] > 8)
+				return false
+		end
 
+		if(move[1] < 1 || move[3] < 1)
+				return false
+		end
+			
+			
+		piece = @board.get_cell(move[0], move[1])
+		
+		if(piece.class == Cell)
+			return false
+		end
+
+		return piece.valid_move?(move, @board)
 
 	end
 

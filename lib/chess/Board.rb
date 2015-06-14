@@ -24,6 +24,7 @@ class Board
                 end
             puts ""
         end
+        puts " 12345678"
         puts "***********"
         puts ""
     end
@@ -32,21 +33,21 @@ class Board
     def replace_cell(letter, number, piece)
             case letter
             when "A"
-                @grid[1][number] = piece   
+                @grid[1][number.to_i] = piece   
             when "B"
-                @grid[2][number] = piece
+                @grid[2][number.to_i] = piece
             when "C"
-                @grid[3][number] = piece
+                @grid[3][number.to_i] = piece
             when "D"
-                @grid[4][number] = piece
+                @grid[4][number.to_i] = piece
             when "E"
-                @grid[5][number] = piece
+                @grid[5][number.to_i] = piece
             when "F"
-                @grid[6][number]  = piece
+                @grid[6][number.to_i]  = piece
             when "G"
-                @grid[7][number] = piece
+                @grid[7][number.to_i] = piece
             when "H"
-                @grid[8][number] = piece
+                @grid[8][number.to_i] = piece
             else
                 raise ArgumentError.new("Only A- H are allowed")
             end
@@ -55,21 +56,21 @@ class Board
     def get_cell(letter, number, grid = @grid)
             case letter
             when "A"
-                @grid[1][number]     
+                @grid[1][number.to_i]     
             when "B"
-                @grid[2][number]
+                @grid[2][number.to_i]
             when "C"
-                @grid[3][number]
+                @grid[3][number.to_i]
             when "D"
-                @grid[4][number]
+                @grid[4][number.to_i]
             when "E"
-                @grid[5][number]
+                @grid[5][number.to_i]
             when "F"
-                @grid[6][number]
+                @grid[6][number.to_i]
             when "G"
-                @grid[7][number]
+                @grid[7][number.to_i]
             when "H"
-                @grid[8][number]
+                @grid[8][number.to_i]
             else
                 raise ArgumentError.new("Only A- H are allowed")
             end
