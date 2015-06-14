@@ -54,6 +54,22 @@ describe Board do
             it "H8 = [8][8]" do
                     expect(@board.get_cell("H", 8) == @board.grid[8][8])
             end
+            
+            it "has a Rook at A1" do
+                    puts @board.get_cell("A", 1).to_s
+                    puts @board.get_cell("A", 1).class
+                    expect(@board.get_cell("A", 1).to_s) == "Rookfdsafdafdsfdsafdsfs"
+
+            end
+            it "has the Cell class when empty" do
+                    puts @board.get_cell("C", 1).class
+                    expect(@board.get_cell("C", 1)).class == Cell
+            end
+            
+            it "has the Piece class when empty" do
+                    puts @board.get_cell("A", 2).class
+                    expect(@board.get_cell("A", 2)).class == Knight
+            end
 
             it "raises error when invalid input" do
 
@@ -86,5 +102,6 @@ describe Board do
             
             end
     end
+
 
 end

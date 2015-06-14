@@ -21,7 +21,31 @@ class Rook
             raise ArgumentError.new('Not initialized correctly')
         end
     end
+    
+    #Rooks can only move up, left, down, right
+    #have a helper method to check w
+    def self.valid_move?(move, board)
+         if(move[0] == move[2]) #if A = A or B = B, it kinda means that its on the same row. Return true if nothing is in the way               
+                 for i in (move[1].to_i + 1)..(move[3].to_i - 1)
+                        if board.get_cell(move[0], i).class != Cell #this means something is in the way
+                                return false
+                        end
+                 end
+         end
 
+            
+
+         if(move[1] = move[3]) #if 2 = 2 or 7 = 7, it kinda means that its on the same column  
+                 for i in (move[0].ord + 1).chr .. (move[2].ord - 1).chr
+                        if board.get_cell(i, move[1]).class != Cell #this means something is in the way
+                                return false
+                        end
+                 end
+
+         end
+    end
+
+    
 end
 
 class Queen 
