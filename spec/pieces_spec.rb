@@ -149,21 +149,39 @@ describe Knight do
               @board.remove_pawns
         end
 
-        it "H3-H3 Knight" do
-            expect(Knight.valid_move?('H3H3', @board)).to eq true
+        #all of these tests start at E4
+        it "Top Top Right at E4: 'E4C5'" do
+            expect(Knight.valid_move?('E4C5', @board)).to eq true
         end
         
-        it 'A6 - B5 Knight' do
-            expect(Knight.valid_move?('A6B5', @board)).to eq true
+        it "Top Right at E4 'E4D6'" do
+            expect(Knight.valid_move?('E4D6', @board)).to eq true
         end
 
-        it "A1 - C1 Knight" do
-            expect(Knight.valid_move?('A1C1', @board)).to eq false
+        it "Bottom Right at E4 'E4F6'" do
+            expect(Knight.valid_move?('E4F6', @board)).to eq true
         end
 
-        it "A1 - A2 Knight" do
-            expect(Knight.valid_move?('A1A2', @board)).to eq false 
+        it "Bottom Bottom Right at E4 'E4G5'" do
+            expect(Knight.valid_move?('E4G5', @board)).to eq true
         end
+        
+        it "Bottom Bottom Left at E4: 'E4G3'" do
+            expect(Knight.valid_move?('E4G3', @board)).to eq true
+        end
+        
+        it "Bottom Left at E4 'E4F2'" do
+            expect(Knight.valid_move?('E4F2', @board)).to eq true
+        end
+
+        it "Top Left at E4 'E4D2'" do
+            expect(Knight.valid_move?('E4D2', @board)).to eq true
+        end
+
+        it "Top Top Left at E4 'E4C3'" do
+            expect(Knight.valid_move?('E4C3<D-P>', @board)).to eq true
+        end
+
     end
 end
 

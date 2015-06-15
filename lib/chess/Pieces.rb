@@ -167,6 +167,30 @@ class Knight
     end
 
     def self.valid_move?(move, board) 
+            #top top right
+            if((move[2].ord - move[0].ord).abs == 2 && (move[3].to_i - move[1].to_i).abs == 1)
+                return true
+            end
+
+            if((move[3].to_i - move[1].to_i).abs == 2 && (move[2].ord - move[0].ord).abs == 1)
+                    return true
+            end
+            
+
+            return false
+            #top right
+            
+            #bottom right
+            
+            #bottom bottom right
+            
+            #bottom bottom left
+            
+            #bottom left
+            
+            #top left
+            
+            #top top left
 
     end
 
