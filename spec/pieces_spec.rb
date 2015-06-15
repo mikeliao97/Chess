@@ -8,40 +8,23 @@ describe Rook do
             @rook = Rook.new(color: :black)
     end
 
-    describe "#new"  do
-            it "takes one parameters and returns a Rook Object" do
-                   expect(@rook).to be_an_instance_of(Rook)
-            end
-    end
-
-    describe "#returns black" do
-            it "returns :black" do
-                    expect(@rook.color).to eq(:black)
-            end
-    end
-
-    let(:user) {Rook.new()}
-    describe "defualt returns white" do
-            it "returns :white" do
-                    expect(user.color).to eq(:white)
-
-            end
-    end
-
 
     describe "#valid_move?" do
         before :each do 
-             @player1 = Player.new(name: "Johnny", color: :white)
+              @player1 = Player.new(name: "Johnny", color: :white)
               @player2 = Player.new(name: "Patrick", color: :black)
               @board = Board.new(@player1, @player2)
+              @board.remove_pawns
+
         end
 
-        it "is not a valid move because a pawn blocks the move A1 - C1" do
-            expect Rook.valid_move?('A1C1', @board) == false
+        it "A1 - C1 returns true" do
+            expect(Rook.valid_move?('A1C1', @board)).to eq(true)
         end
 
-        it "is not a valid move because a pawn blocks the move A1 - C3" do
-            expect Rook.valid_move?('A1C3', @board) == false
+        it "A1 - C3 Returns false" do
+            expect(Rook.valid_move?('A1C3', @board)).to eq(false)
+
         end
 
 
@@ -55,15 +38,18 @@ describe Bishop do
              @player1 = Player.new(name: "Johnny", color: :white)
               @player2 = Player.new(name: "Patrick", color: :black)
               @board = Board.new(@player1, @player2)
+              @board.remove_pawns
+
 
         end
 
-        it "H3-F5 fails due to pawn in front" do
-            expect Bishop.valid_move?('H3F5', @board) == false
+        it "H3-F5 Bishop" do
+            puts Bishop.valid_move?('H3F5', @board)
+            expect(Bishop.valid_move?('H3F5', @board)).to eq true
         end
         
-        it 'A6 - C4 fails due to a pawn in front' do
-            expect Bishop.valid_move?('A6C4', @board) == false
+        it 'A6-C4 Bishop' do
+            expect(Bishop.valid_move?('A6C4', @board)).to eq true
         end
 
     end
@@ -76,25 +62,60 @@ describe Queen do
               @player1 = Player.new(name: "Johnny", color: :white)
               @player2 = Player.new(name: "Patrick", color: :black)
               @board = Board.new(@player1, @player2)
+              @board.remove_pawns
 
         end
 
-        it "H3-F5 fails due to pawn in front" do
-            expect Queen.valid_move?('H3F5', @board) == false
+        it "H3-F5 Queen" do
+            expect(Queen.valid_move?('H3F5', @board)).to eq true 
         end
         
-        it 'A6 - C4 fails due to a pawn in front' do
-            expect Queen.valid_move?('A6C4', @board) == false
+        it 'A6 - C4 Queen' do
+            expect(Queen.valid_move?('A6C4', @board)).to eq true
         end
 
-        it "is not a valid move because a pawn blocks the move A1 - C1" do
-            expect Queen.valid_move?('A1C1', @board) == false
+        it "A1 - C1 Queen" do
+            expect(Queen.valid_move?('A1C1', @board)).to eq true 
         end
 
-        it "is not a valid move because a pawn blocks the move A1 - C3" do
-            expect Queen.valid_move?('A1C3', @board) == false
+        it "A1 - C3 Queen" do
+            expect(Queen.valid_move?('A1C3', @board)).to eq true 
         end
     end
+
+    describe "#valid_move?" do
+            context "pawns are removed" do
+                    before :all do
+                        @player1 = Player.new(name: "Johnny", color: :white)
+                        @player2 = Player.new(name: "Patrick", color: :black)
+                        @board = Board.new(@player1, @player2)
+                    end
+
+                    
+                     it "H3-F5 Queen with pawns" do
+                       expect(Queen.valid_move?('H3F5', @board)).to eq false
+                        end
+        
+                     it 'A6 - C4 Queen with pawns ' do        
+                        expect(Queen.valid_move?('A6C4', @board)).to eq false 
+                      end
+
+                      it "A1 - C1 Queen with pawns" do
+
+                        expect(Queen.valid_move?('A1C1', @board)).to eq false 
+                      end
+
+                      it "A1 - C3 Queen with pawns" do
+
+                         expect(Queen.valid_move?('A1C3', @board)).to eq false 
+                    end
+        
+            end
+                
+
+
+    end
+
 
     
 end

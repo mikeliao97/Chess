@@ -50,8 +50,7 @@ class Queen
     end
 
     def self.valid_move?(move, board)
-        return PiecesConstant::valid_horizontal_vertical_move?(move, board) || PiecesConstant::valid_diagonal_move(move, board)
-
+        return PiecesConstant::valid_horizontal_vertical_move?(move, board) || PiecesConstant::valid_diagonal_move?(move, board)
     end
     
 end
@@ -73,6 +72,10 @@ class King
         else
             raise ArgumentError.new('Not initialized correctly')
         end
+    end
+    
+    def self.valid_move?(move, board)
+            
     end
 
 end
@@ -99,7 +102,7 @@ class Bishop
 
     
     def self.valid_move?(move, board)
-        return PiecesConstant::valid_diagonal_move(move, board)
+        return PiecesConstant::valid_diagonal_move?(move, board)
     end
 
 
@@ -124,6 +127,10 @@ class Pawn
             raise ArgumentError.new('Not initialized correctly')
         end
     end
+
+    def self.valid_move?(move, board)
+
+    end
 end
 
 class Knight
@@ -144,6 +151,9 @@ class Knight
         end
     end
 
+    def self.valid_move?(move, board) 
+
+    end
 
 
 end

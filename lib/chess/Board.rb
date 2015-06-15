@@ -76,6 +76,28 @@ class Board
             end
 
     end
+    #for the purposes of testing. Will remove this method later
+    def remove_pawns
+        @grid[2][1] = Cell.new(@player1.color)
+        @grid[2][2] = Cell.new(@player1.color)
+        @grid[2][3] = Cell.new(@player1.color)
+        @grid[2][4] = Cell.new(@player1.color)
+        @grid[2][5] = Cell.new(@player1.color)
+        @grid[2][6] = Cell.new(@player1.color)
+        @grid[2][7] = Cell.new(@player1.color)
+        @grid[2][8] = Cell.new(@player1.color)
+
+
+        @grid[7][1] = Cell.new(@player1.color)
+        @grid[7][2] = Cell.new(@player1.color)
+        @grid[7][3] = Cell.new(@player1.color)
+        @grid[7][4] = Cell.new(@player1.color)
+        @grid[7][5] = Cell.new(@player1.color)
+        @grid[7][6] = Cell.new(@player1.color)
+        @grid[7][7] = Cell.new(@player1.color)
+        @grid[7][8] = Cell.new(@player1.color)
+
+    end
 
     private
 
