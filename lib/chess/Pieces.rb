@@ -75,7 +75,11 @@ class King
     end
     
     def self.valid_move?(move, board)
-            
+        if((move[2].ord - move[0].ord).abs < 2 && (move[3].to_i - move[1].to_i).abs < 2) 
+                return true
+        end
+
+        return false
     end
 
 end
@@ -129,6 +133,17 @@ class Pawn
     end
 
     def self.valid_move?(move, board)
+        #the second location's letter is smaller than one's letter. For example from G to F or B to A
+        #the second location's number is smaller than or bigger than by one. This one just use aboslute value
+        if(move[0] == move[2] && move[1] == move[3])
+                return true
+        end
+            
+        if((move[0].ord - move[2].ord).abs <= 1 && (move[3].to_i - move[1].to_i).abs <= 1 && (move[0].ord - move[2].ord).abs != 0 )
+            return true      
+        end
+
+            return false
 
     end
 end
@@ -154,7 +169,6 @@ class Knight
     def self.valid_move?(move, board) 
 
     end
-
 
 end
 
