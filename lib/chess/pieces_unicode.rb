@@ -32,12 +32,10 @@ module PiecesConstant
 
          if(move[1] == move[3]) #if 2 = 2 or 7 = 7, it kinda means that its on the same column  
                  for i in (move[0].ord + 1).chr .. (move[2].ord - 1).chr
-=begin
                         if board.get_cell(i, move[1]).class != Cell #this means something is in the way
                                 puts "#{board.get_cell(i, move[1]).class} is in the way of the rook!"
                                 return false
                         end
-=end
                  end
 
                  return true
@@ -62,12 +60,10 @@ module PiecesConstant
             for i in 1..(move[2].ord - move[0].ord).abs
                 current_letter = (move[0].ord + i * increment_in_letter).chr
                 current_number = (move[1].to_i + i * increment_in_number).to_s
-=begin
                 if(board.get_cell(current_letter, current_number).class != Cell)
                         puts "#{board.get_cell(current_letter, current_number).class} is in the way of the rook!" 
                         return false
                 end
-=end
 
             end
 

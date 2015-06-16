@@ -174,24 +174,24 @@ class Board
 
     #this takes player 2 and initializes the pieces for the black side
     def initializeBlackSide(x)
-        x[7][1] = Pawn.new(color: @player1.color, player: @player1)
-        x[7][2] = Pawn.new(color: @player1.color, player: @player1)
-        x[7][3] = Pawn.new(color: @player1.color, player: @player1)
-        x[7][4] = Pawn.new(color: @player1.color, player: @player1)
-        x[7][5] = Pawn.new(color: @player1.color, player: @player1)
-        x[7][6] = Pawn.new(color: @player1.color, player: @player1)
-        x[7][7] = Pawn.new(color: @player1.color, player: @player1)
-        x[7][8] = Pawn.new(color: @player1.color, player: @player1)
+        x[7][1] = Pawn.new(color: @player2.color, player: @player2)
+        x[7][2] = Pawn.new(color: @player2.color, player: @player2)
+        x[7][3] = Pawn.new(color: @player2.color, player: @player2)
+        x[7][4] = Pawn.new(color: @player2.color, player: @player2)
+        x[7][5] = Pawn.new(color: @player2.color, player: @player2)
+        x[7][6] = Pawn.new(color: @player2.color, player: @player2)
+        x[7][7] = Pawn.new(color: @player2.color, player: @player2)
+        x[7][8] = Pawn.new(color: @player2.color, player: @player2)
         
         #other pieces
-        x[8][1] = Rook.new(color: @player1.color, player: @player1) 
-        x[8][2] = Knight.new(color: @player1.color, player: @player1) 
-        x[8][3] = Bishop.new(color: @player1.color, player: @player1) 
-        x[8][4] = Queen.new(color: @player1.color, player: @player1) 
-        x[8][5] = King.new(color: @player1.color, player: @player1) 
-        x[8][6] = Bishop.new(color: @player1.color, player: @player1) 
-        x[8][7] = Knight.new(color: @player1.color, player: @player1) 
-        x[8][8] = Rook.new(color: @player1.color, player: @player1)  
+        x[8][1] = Rook.new(color: @player2.color, player: @player2) 
+        x[8][2] = Knight.new(color: @player2.color, player: @player2) 
+        x[8][3] = Bishop.new(color: @player2.color, player: @player2) 
+        x[8][4] = Queen.new(color: @player2.color, player: @player2) 
+        x[8][5] = King.new(color: @player2.color, player: @player2) 
+        x[8][6] = Bishop.new(color: @player2.color, player: @player2) 
+        x[8][7] = Knight.new(color: @player2.color, player: @player2) 
+        x[8][8] = Rook.new(color: @player2.color, player: @player2)  
 
         return x
     end

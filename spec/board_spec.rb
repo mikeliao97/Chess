@@ -75,6 +75,17 @@ describe Board do
 
                     expect {@board.get_cell("fda", 8) }.to raise_exception(ArgumentError)
             end
+
+            it "recognizes color the black side" do
+                expect(@board.get_cell("H", 1).color).to eq(:black)
+
+            end
+            
+            it "recognizes color the white side" do
+                expect(@board.get_cell("B", 1).color).to eq(:white)
+
+            end
+
         end
         
     end

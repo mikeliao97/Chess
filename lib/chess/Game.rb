@@ -21,6 +21,8 @@ class Game
 		end
 
 	end
+
+	private
 	
 	#parse this move and make sure its okay
 	#Parse this move
@@ -52,18 +54,25 @@ class Game
 		if(piece.class == Cell)
 			return false
 		end
+		
+		#if the piece can move to that location, like its part of its possible
+		#moveset,then check if it is a valid_move
+		if piece.possible_move?(move, @board)
+			#if the piece is allowed to go to that specific location
+			#The game also has to check if they are any pieces blocking its way
+			#to that location
+			
+			return pieces.valid_move?(move, @board)
 
-		return piece.valid_move?(move, @board)
+		end
 
 	end
 
-	def play
-
-
+	def eat_piece
 
 
 	end
-	
+		
 	
 
 end

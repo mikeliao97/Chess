@@ -5,10 +5,11 @@
 class Cell
     LIGHT_BLOCK = "\u2591"
     BLACK_BLOCK = "\u2588"
-    attr_accessor :color, :piece
+    attr_accessor :color, :piece, :player
     def initialize(color, piece = false)
        if(piece)  #if it is false set it to to light blcok
                @color = piece
+               @player = nil
        else
                if(color == :black)
                    @color = BLACK_BLOCK
